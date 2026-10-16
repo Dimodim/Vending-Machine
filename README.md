@@ -28,6 +28,22 @@ To make a production build:
 npm run build
 ```
 
+## Tests
+
+Run the Vitest unit tests with:
+
+```bash
+npm test
+```
+
+This starts the test runner in watch mode. To run the tests once and exit:
+
+```bash
+npm test -- --watch=false
+```
+
+The unit tests cover the product API service and vending-machine service logic.
+
 ## Vending machine
 
 - Add, edit, and remove products from **Manage stock**. Stock can range from 0 to 15 units for each product type. Each type must have a different price.
