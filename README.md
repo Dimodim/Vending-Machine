@@ -1,4 +1,4 @@
-# Mint Market
+# Vending Machine
 
 A responsive vending-machine storefront and stock manager built with the latest stable Angular, Angular signals, and Node.js. The mock products API serves its initial product list from a local JSON file. Creating, editing, and deleting products, as well as purchases and stock changes, update the Angular application state only; refreshing the page reloads the original product list.
 
