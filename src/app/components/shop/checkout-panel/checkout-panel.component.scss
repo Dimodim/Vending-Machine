@@ -1,0 +1,196 @@
+.checkout-card {
+  position: sticky;
+  top: 18px;
+  border-color: #e6e9e1;
+  background: #fff;
+
+  .checkout-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 17px 19px 15px;
+
+    mat-card-title {
+      color: var(--ink);
+      font:
+        500 23px/1.15 Georgia,
+        'Times New Roman',
+        serif;
+    }
+
+    .coin-illustration {
+      width: 29px;
+      height: 29px;
+      display: grid;
+      place-items: center;
+      border: 1px solid #e8d9a7;
+      border-radius: 50%;
+      background: #fbf5dd;
+      color: #bc9d43;
+      font:
+        17px Georgia,
+        serif;
+    }
+  }
+
+  .selected-item {
+    display: flex;
+    min-height: 65px;
+    align-items: center;
+    gap: 10px;
+    padding: 11px 10px;
+    background: #f6f6f1;
+
+    .selected-item-icon {
+      width: 33px;
+      height: 33px;
+      display: grid;
+      flex: none;
+      place-items: center;
+      border-radius: 50%;
+      background: #e9ebdf;
+      font-size: 17px;
+    }
+
+    .selected-item-copy {
+      display: flex;
+      flex: 1;
+      min-width: 0;
+      flex-direction: column;
+      gap: 6px;
+
+      strong {
+        overflow: hidden;
+        color: var(--ink);
+        font:
+          500 13px Georgia,
+          serif;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+
+    .selected-price {
+      white-space: nowrap;
+      color: #5e7a6c;
+      font-size: 11px;
+      font-weight: 600;
+    }
+  }
+
+  .coin-section {
+    padding: 19px 0 15px;
+
+    .coin-heading {
+      display: flex;
+      justify-content: space-between;
+      color: #76867b;
+      font-size: 7px;
+      letter-spacing: 0.85px;
+    }
+
+    .coin-buttons {
+      display: flex;
+      justify-content: space-between;
+      gap: 5px;
+      margin-top: 12px;
+
+      .coin-button {
+        min-width: 0;
+        flex: 1;
+        height: 38px;
+        color: #52675a;
+        font:
+          600 9px Arial,
+          sans-serif;
+
+        &.coin-button-added {
+          background: #edf2e8;
+        }
+
+        .coin-symbol {
+          color: #b29452;
+          font:
+            11px Georgia,
+            serif;
+        }
+      }
+    }
+  }
+
+  .balance-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 13px 0;
+    border-top: 1px solid #eff0eb;
+
+    > span {
+      color: #809087;
+      font-size: 7px;
+      letter-spacing: 0.8px;
+    }
+
+    .coin-count {
+      color: #abb1aa;
+      letter-spacing: 0;
+    }
+
+    > strong {
+      color: var(--ink);
+      font:
+        500 18px Georgia,
+        serif;
+    }
+  }
+
+  .checkout-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0;
+    margin-bottom: 12px;
+
+    .purchase-button {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      justify-content: space-between;
+      font:
+        500 12px Georgia,
+        serif;
+
+      > span + span {
+        color: #f2a27c;
+        font:
+          15px Arial,
+          sans-serif;
+      }
+    }
+
+    .reset-button {
+      width: 100%;
+      min-height: 40px;
+      white-space: normal;
+      color: #8a948c;
+      font:
+        10px Arial,
+        sans-serif;
+    }
+  }
+
+  @media (max-width: 680px) {
+    position: static;
+  }
+
+  @media (max-width: 380px) {
+    .coin-buttons {
+      gap: 3px;
+    }
+
+    .coin-button {
+      font-size: 8px;
+    }
+  }
+}

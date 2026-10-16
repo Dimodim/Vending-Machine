@@ -1,0 +1,14 @@
+<section class="inventory-overview" aria-label="Inventory overview">
+  <mat-card class="overview-stat" appearance="outlined">
+    <mat-card-content>
+      <span class="text-label">PRODUCTS IN CATALOG</span>
+      <strong>{{ productCount() }}</strong>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="overview-stat" appearance="outlined">
+    <mat-card-content>
+      <span class="text-label">UNITS IN STOCK</span>
+      <strong>{{ totalStock() }}</strong>
+    </mat-card-content>
+  </mat-card>
+</section>

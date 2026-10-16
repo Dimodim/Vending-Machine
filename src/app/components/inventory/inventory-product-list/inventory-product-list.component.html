@@ -1,0 +1,40 @@
+<section class="inventory-list">
+  @if (loading) {
+    <div class="empty-state" role="status">
+      <mat-spinner diameter="28" aria-label="Loading inventory" />
+      <span>Loading the shelf…</span>
+    </div>
+  } @else if (products.length === 0) {
+    <mat-card class="empty-state" appearance="outlined">
+      Nothing here just yet. Add your first treat.
+    </mat-card>
+  } @else {
+    @for (product of products; track product.id) {
+      <mat-card class="inventory-item" appearance="outlined">
+        <mat-card-content class="inventory-item-content">
+          <div class="inventory-product-icon" [style.background]="product.accent">
+            {{ product.icon }}
+          </div>
+          <div class="inventory-product-details">
+            <strong>{{ product.name }}</strong>
+            <span>{{ product.category }} · {{ formatCents(product.priceCents) }} each</span>
+          </div>
+          <span class="inventory-stock" [class.low-stock]="product.stock < 4">
+            <span></span> {{ product.stock }} / 15
+          </span>
+          <div class="inventory-actions">
+            <button matButton="text" type="button" (click)="edit.emit(product)">Edit</button>
+            <button
+              matButton="text"
+              type="button"
+              (click)="remove.emit(product)"
+              [attr.aria-label]="'Remove ' + product.name"
+            >
+              Remove
+            </button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    }
+  }
+</section>

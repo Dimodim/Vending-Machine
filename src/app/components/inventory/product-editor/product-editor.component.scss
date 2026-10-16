@@ -1,0 +1,51 @@
+.editor-card {
+  border-color: #e6e9e1;
+  background: #fff;
+
+  mat-card-header {
+    padding: 21px 21px 14px;
+  }
+
+  mat-card-title {
+    color: var(--ink);
+    font:
+      500 23px/1.15 Georgia,
+      'Times New Roman',
+      serif;
+  }
+
+  .editor-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 0 21px;
+
+    mat-form-field {
+      width: 100%;
+    }
+  }
+
+  .form-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+
+    mat-form-field {
+      flex: 1;
+      min-width: 0;
+    }
+  }
+
+  .editor-actions {
+    padding: 0 21px 16px;
+
+    .save-button {
+      flex: 1;
+    }
+  }
+
+  .feedback {
+    margin: 0;
+    padding: 0 21px 16px;
+  }
+}

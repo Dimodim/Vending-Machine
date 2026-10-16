@@ -1,0 +1,77 @@
+<mat-card class="checkout-card" appearance="outlined">
+  <mat-card-header class="checkout-title-row">
+    <mat-card-title>Purchase</mat-card-title>
+    <span class="coin-illustration" aria-hidden="true">€</span>
+  </mat-card-header>
+
+  <mat-card-content>
+    @if (product) {
+      <div class="selected-item">
+        <span class="selected-item-icon">{{ product?.icon || '✳' }}</span>
+        <div class="selected-item-copy">
+          <strong>{{ product?.name }}</strong>
+        </div>
+        <span class="selected-price">
+          {{ product ? formatCents(product.priceCents) : '—' }}
+        </span>
+      </div>
+    }
+
+    <div class="coin-section">
+      <div class="coin-heading text-label">
+        <span>DROP A COIN</span>
+      </div>
+      <div class="coin-buttons">
+        @for (denomination of denominations; track denomination) {
+          <button
+            matButton="outlined"
+            class="coin-button"
+            [class.coin-button-added]="insertedCoins[denomination] > 0"
+            [attr.aria-label]="'Insert ' + formatCents(denomination)"
+            (click)="coinInserted.emit(denomination)"
+          >
+            <span class="coin-symbol">€</span
+            >{{ denomination >= 100 ? denomination / 100 : (denomination / 100).toFixed(2) }}
+          </button>
+        }
+      </div>
+    </div>
+
+    <div class="balance-row">
+      <span class="text-label"
+        >Balance
+        <span class="coin-count">· {{ balanceCents / 100 | number: '1.2-2' }} EUR</span></span
+      >
+      <strong>{{ formatCents(balanceCents) }}</strong>
+    </div>
+
+    <mat-card-actions class="checkout-actions">
+      <button
+        matButton="filled"
+        class="purchase-button"
+        [disabled]="!canPurchase"
+        (click)="purchase.emit()"
+      >
+        Purchase <span>↗</span>
+      </button>
+      <button
+        matButton="outlined"
+        class="reset-button"
+        [disabled]="balanceCents === 0 && selectedProductId === null"
+        (click)="reset.emit()"
+      >
+        Get change back
+      </button>
+    </mat-card-actions>
+
+    @if (product && changeCents !== null && !canMakeChange) {
+      <p class="feedback" role="alert">
+        We can't make {{ formatCents(changeCents) }} change right now. Try exact payment or choose
+        another treat.
+      </p>
+    }
+    @if (feedback) {
+      <p class="feedback" role="status">{{ feedback }}</p>
+    }
+  </mat-card-content>
+</mat-card>

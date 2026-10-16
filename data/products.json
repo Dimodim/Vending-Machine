@@ -2,7 +2,6 @@
   {
     "id": "lemon-shortbread",
     "name": "Lemon shortbread",
-    "description": "Buttery, bright, with a little sunshine.",
     "category": "Bakery",
     "priceCents": 120,
     "stock": 12,
@@ -12,7 +11,6 @@
   {
     "id": "strawberry-oats",
     "name": "Strawberry oats",
-    "description": "A lovely little spoonful of summer.",
     "category": "Fresh",
     "priceCents": 150,
     "stock": 8,
@@ -22,7 +20,6 @@
   {
     "id": "oat-cookie",
     "name": "Honey oat cookie",
-    "description": "Chewy oats, a touch of wildflower honey.",
     "category": "Sweet",
     "priceCents": 180,
     "stock": 14,
@@ -32,7 +29,6 @@
   {
     "id": "matcha-latte",
     "name": "Matcha latte",
-    "description": "Green tea, creamy oat milk, deep breaths.",
     "category": "Drink",
     "priceCents": 200,
     "stock": 9,
@@ -42,7 +38,6 @@
   {
     "id": "almond-croissant",
     "name": "Almond croissant",
-    "description": "Flaky, golden, decidedly not for sharing.",
     "category": "Bakery",
     "priceCents": 220,
     "stock": 7,
@@ -52,7 +47,6 @@
   {
     "id": "peach-sparkler",
     "name": "Peach sparkler",
-    "description": "Bubbly peaches and a hint of mint.",
     "category": "Drink",
     "priceCents": 250,
     "stock": 11,
@@ -62,7 +56,6 @@
   {
     "id": "dark-chocolate",
     "name": "Dark chocolate",
-    "description": "A square of 70% cocoa quiet time.",
     "category": "Sweet",
     "priceCents": 280,
     "stock": 15,
@@ -72,7 +65,6 @@
   {
     "id": "apple-juice",
     "name": "Apple juice",
-    "description": "Pressed fresh; no funny business.",
     "category": "Fresh",
     "priceCents": 300,
     "stock": 6,

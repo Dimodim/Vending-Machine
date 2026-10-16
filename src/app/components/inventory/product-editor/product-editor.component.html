@@ -1,0 +1,77 @@
+<mat-card class="editor-card" appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>{{ editing ? 'Edit product.' : 'Add a product.' }}</mat-card-title>
+  </mat-card-header>
+  <form novalidate (submit)="submit($event)">
+    <mat-card-content class="editor-fields">
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput [formField]="form.name" placeholder="e.g. Honey oat cookie" />
+        @if (form.name().invalid() && form.name().touched()) {
+          <mat-error>Enter a product name.</mat-error>
+        }
+      </mat-form-field>
+
+      <div class="form-row">
+        <mat-form-field appearance="outline">
+          <mat-label>Price</mat-label>
+          <span matTextPrefix>€&nbsp;</span>
+          <input
+            matInput
+            [formField]="form.price"
+            type="text"
+            inputmode="decimal"
+            placeholder="2.50"
+          />
+          @if (form.price().invalid() && form.price().touched()) {
+            <mat-error>Enter a price greater than zero with up to two decimal places.</mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>On the shelf</mat-label>
+          <input matInput [formField]="form.stock" type="number" step="1" />
+          <span matTextSuffix>&nbsp;/ 15</span>
+          @if (form.stock().invalid() && form.stock().touched()) {
+            <mat-error>Stock must be a whole number between 0 and 15.</mat-error>
+          }
+        </mat-form-field>
+      </div>
+
+      <div class="form-row">
+        <mat-form-field appearance="outline">
+          <mat-label>Category</mat-label>
+          <select matNativeControl [formField]="form.category">
+            <option value="Snack">Snack</option>
+            <option value="Drink">Drink</option>
+            <option value="Sweet">Sweet</option>
+            <option value="Fresh">Fresh</option>
+            <option value="Bakery">Bakery</option>
+          </select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Product icon</mat-label>
+          <select matNativeControl [formField]="form.icon">
+            @for (icon of productIcons; track icon.value) {
+              <option [value]="icon.value">{{ icon.value }} {{ icon.label }}</option>
+            }
+          </select>
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+
+    <mat-card-actions class="editor-actions">
+      <button matButton="filled" class="save-button" type="submit">
+        {{ editing ? 'Save changes' : 'Add to the shelf' }}
+      </button>
+      @if (editing) {
+        <button matButton="text" type="button" (click)="cancel.emit()">Cancel</button>
+      }
+    </mat-card-actions>
+
+    @if (feedback) {
+      <p class="feedback" role="status">{{ feedback }}</p>
+    }
+  </form>
+</mat-card>

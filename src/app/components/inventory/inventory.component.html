@@ -1,0 +1,24 @@
+<section class="inventory-page">
+  <app-inventory-overview
+    [productCount]="machine.products().length"
+    [totalStock]="machine.totalStock()"
+  />
+
+  <div class="inventory-workspace">
+    <app-inventory-product-list
+      [products]="machine.products()"
+      [loading]="machine.loading()"
+      [formatCents]="machine.formatCents"
+      (edit)="machine.editProduct($event)"
+      (remove)="machine.deleteProduct($event)"
+    />
+
+    <app-product-editor
+      [draft]="machine.draft()"
+      [editing]="machine.editingProductId() !== null"
+      [feedback]="machine.feedback()"
+      (save)="machine.saveProduct($event)"
+      (cancel)="machine.cancelEdit()"
+    />
+  </div>
+</section>

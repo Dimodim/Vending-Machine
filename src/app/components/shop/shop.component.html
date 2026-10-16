@@ -1,0 +1,26 @@
+<section class="shop-layout">
+  <app-product-catalog
+    [products]="machine.products()"
+    [loading]="machine.loading()"
+    [error]="machine.error()"
+    [selectedProductId]="machine.selectedProductId()"
+    [formatCents]="machine.formatCents"
+    (productSelected)="machine.selectProduct($event)"
+  />
+
+  <app-checkout-panel
+    [product]="machine.selectedProduct()"
+    [selectedProductId]="machine.selectedProductId()"
+    [insertedCoins]="machine.insertedCoins()"
+    [balanceCents]="machine.balanceCents()"
+    [changeCents]="machine.changeCents()"
+    [canPurchase]="machine.canPurchase()"
+    [canMakeChange]="machine.changePlan() !== null"
+    [feedback]="machine.feedback()"
+    [formatCents]="machine.formatCents"
+    [denominations]="machine.denominations"
+    (coinInserted)="machine.insertCoin($event)"
+    (purchase)="machine.purchase()"
+    (reset)="machine.resetMachine()"
+  />
+</section>

@@ -1,0 +1,23 @@
+<header class="topbar">
+  <nav mat-tab-nav-bar class="main-nav" aria-label="Main navigation">
+    <a
+      mat-tab-link
+      routerLink="/shop"
+      routerLinkActive
+      #shopRoute="routerLinkActive"
+      [routerLinkActiveOptions]="{ exact: true }"
+      [active]="shopRoute.isActive"
+    >
+      Shop
+    </a>
+    <a
+      mat-tab-link
+      routerLink="/inventory"
+      routerLinkActive
+      #inventoryRoute="routerLinkActive"
+      [active]="inventoryRoute.isActive"
+    >
+      Manage stock
+    </a>
+  </nav>
+</header>

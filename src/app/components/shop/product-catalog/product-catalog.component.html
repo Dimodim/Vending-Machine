@@ -1,0 +1,35 @@
+<div class="products-panel">
+  <div class="section-heading">
+    <div>
+      <h2>
+        Products <span>({{ products.length }})</span>
+      </h2>
+    </div>
+  </div>
+
+  @if (loading) {
+    <div class="empty-state" role="status">
+      <mat-spinner diameter="28" aria-label="Loading products" />
+      <span>Bringing the good stuff your way…</span>
+    </div>
+  } @else if (error) {
+    <mat-card class="empty-state error-state" appearance="outlined" role="alert">{{
+      error
+    }}</mat-card>
+  } @else if (products.length === 0) {
+    <mat-card class="empty-state" appearance="outlined">
+      The shelf is taking a little breather. Add a treat in Manage stock.
+    </mat-card>
+  } @else {
+    <div class="product-grid">
+      @for (product of products; track product.id) {
+        <app-product-card
+          [product]="product"
+          [selected]="selectedProductId === product.id"
+          [formatCents]="formatCents"
+          (productSelected)="productSelected.emit($event)"
+        />
+      }
+    </div>
+  }
+</div>

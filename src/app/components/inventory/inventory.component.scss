@@ -1,0 +1,26 @@
+.inventory-page {
+  min-height: 600px;
+
+  .inventory-workspace {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 330px;
+    align-items: start;
+    gap: 45px;
+    padding: 12px 0 65px;
+  }
+
+  @media (max-width: 900px) {
+    .inventory-workspace {
+      grid-template-columns: minmax(0, 1fr) 300px;
+      gap: 25px;
+    }
+  }
+
+  @media (max-width: 680px) {
+    .inventory-workspace {
+      grid-template-columns: 1fr;
+      gap: 25px;
+      padding-top: 12px;
+    }
+  }
+}

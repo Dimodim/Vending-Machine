@@ -1,0 +1,31 @@
+<mat-card
+  class="product-card"
+  appearance="outlined"
+  [class.product-selected]="selected"
+  [class.product-sold-out]="product.stock === 0"
+>
+  <button
+    matButton="text"
+    type="button"
+    class="product-card-button"
+    [disabled]="product.stock === 0"
+    [attr.aria-pressed]="selected"
+    (click)="select()"
+  >
+    <div class="product-visual" [style.background]="product.accent">
+      <span class="product-category text-label">{{ product.category }}</span>
+      <span class="product-emoji" aria-hidden="true">{{ product.icon }}</span>
+      <span class="product-quick-add">{{ selected ? '✓' : '+' }}</span>
+      @if (product.stock === 0) {
+        <span class="sold-out-badge">ALL GONE</span>
+      }
+    </div>
+    <mat-card-content class="product-info">
+      <div class="product-title-row">
+        <h3>{{ product.name }}</h3>
+        <span class="product-price">{{ formatCents(product.priceCents) }}</span>
+      </div>
+      <span class="stock-caption text-label">{{ product.stock }} left</span>
+    </mat-card-content>
+  </button>
+</mat-card>
